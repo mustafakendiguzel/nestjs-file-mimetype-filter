@@ -1,7 +1,6 @@
 
-<a href="https://www.npmjs.com/package/nestjs-file-mimetype-filter" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/package/nestjs-file-mimetype-filter" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/package/nestjs-file-mimetype-filter" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
+[![npm version](https://img.shields.io/npm/v/nestjs-file-mimetype-filter)](https://www.npmjs.com/package/nestjs-file-mimetype-filter)
+[![npm download by month](https://img.shields.io/npm/dm/nestjs-file-mimetype-filter)](https://npmcharts.com/compare/nestjs-file-mimetype-filter?minimal=true)
 
 
 ## Description
