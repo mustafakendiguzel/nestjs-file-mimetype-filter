@@ -69,11 +69,13 @@ You can combine with Swagger if you want
 You can use for filtering images 
 ```bash
 @ApiImageFile('file',consentFormBody)
-#or Custom FileMimetype
-@CustomFile('file','audio',consentFormBody)
+
 ```
+or Custom fileMimeType 
+```bash
+@CustomFile('file','audio',consentFormBody)
 
-
+```
 
 ## Stay in touch
 
