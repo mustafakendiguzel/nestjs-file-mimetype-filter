@@ -34,7 +34,7 @@ String of 'file' is the parameter name for uploadedFile from body.(default:'file
 ```
 You can combine with Swagger if you want 
 ```bash
-@ApiPdfFile('file',consentFormBody)
+@ApiPdfFile('file',ConsentFormBody)
   @Post()
   async create(@UploadedFile() file: Express.Multer.File, @Body() body: CreateConsentFormDto) {
     if (!file) {
