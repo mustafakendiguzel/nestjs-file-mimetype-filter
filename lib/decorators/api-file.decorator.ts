@@ -1,5 +1,5 @@
-import { fileMimetypeFilter } from '@app/helpers/file-mimetype';
 import { MulterOptions } from '@nestjs/platform-express/multer/interfaces/multer-options.interface';
+import { fileMimetypeFilter } from 'lib/helpers/file-mimetype';
 import { ApiFile } from './api-files.decorator';
 
 export function ApiImageFile(fileName: string = 'file', localOptions?: MulterOptions, apiBodyType?: Function) {
