@@ -36,7 +36,7 @@ String of 'file' is the parameter name for uploadedFile from body.(default:'file
 You can access the multer options with second parameter(Example)
 [More about Multer Options](https://www.npmjs.com/package/multer)
 ```bash
-@ApiPdfFile('file'{
+@ApiPdfFile('file', {
   dest:'src/files',
   limits:5
 })
