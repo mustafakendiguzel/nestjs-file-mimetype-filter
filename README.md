@@ -32,9 +32,24 @@ String of 'file' is the parameter name for uploadedFile from body.(default:'file
   }
 
 ```
+## Access Multer Options 
+You can access the multer options with second parameter(Example)
+[More about Multer Options](https://www.npmjs.com/package/multer)
+```bash
+@ApiPdfFile('file'{
+  dest:'src/files',
+  limits:5
+})
+  @Post()
+  async create(@UploadedFile() file: Express.Multer.File, @Body() body: CreateConsentFormDto) {
+    if (!file) {
+      throw new UnprocessableEntityException('File is required!');
+  }
+```
+
 You can combine with Swagger if you want 
 ```bash
-@ApiPdfFile('file',ConsentFormBody)
+@ApiPdfFile('file',{},ConsentFormBody)
   @Post()
   async create(@UploadedFile() file: Express.Multer.File, @Body() body: CreateConsentFormDto) {
     if (!file) {
@@ -68,12 +83,12 @@ You can combine with Swagger if you want
 
 You can use for filtering images 
 ```bash
-@ApiImageFile('file',consentFormBody)
+@ApiImageFile('file',{})
 
 ```
 or Custom fileMimeType 
 ```bash
-@CustomFile('file','audio',consentFormBody)
+@CustomFile('file','audio',{},consentFormBody)
 
 ```
 
