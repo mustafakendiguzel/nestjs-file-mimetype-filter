@@ -8,13 +8,15 @@ export function ApiFile(
   apiBodyType?: Function,
   localOptions?: MulterOptions,
 ) {
-  if(apiBodyType) {
+  if (apiBodyType) {
     return applyDecorators(
       UseInterceptors(FileInterceptor(fieldName, localOptions)),
       ApiConsumes('multipart/form-data'),
       apiBodyType(),
     );
   } else {
-    return applyDecorators(UseInterceptors(FileInterceptor(fieldName, localOptions)));
+    return applyDecorators(
+      UseInterceptors(FileInterceptor(fieldName, localOptions)),
+    );
   }
 }

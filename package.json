@@ -1,6 +1,6 @@
 {
   "name": "nestjs-file-mimetype-filter",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A package where you can filter the filemimetype of the file you are going to upload.",
   "keywords": [
     "file",
@@ -34,6 +34,7 @@
     "lint": "eslint \"{src,__tests__}/**/*.ts\" --fix && prettier --write \"{src,__tests__}/**/*.ts\"",
     "test": "jest",
     "prepare": "npm run build",
+    "format": "prettier --write \"lib/**/*.ts\" \"test/**/*.ts\"",
     "preversion": "npm run lint",
     "version": "git add -A src",
     "postversion": "git push && git push --tags"
