@@ -1,4 +1,4 @@
-import { MulterOptions } from "@nestjs/platform-express/multer/interfaces/multer-options.interface";
+import { MulterOptions } from '@nestjs/platform-express/multer/interfaces/multer-options.interface';
 
 export interface FileOptions {
   fileName: string;
@@ -7,8 +7,8 @@ export interface FileOptions {
 }
 
 export interface CustomFileOptions extends FileOptions {
-  type:{
-    allowedFiles?:string[];
-    deniedFiles?:string[];
+  type: {
+    allowedFiles?: string[];
+    deniedFiles?: string[];
   };
 }

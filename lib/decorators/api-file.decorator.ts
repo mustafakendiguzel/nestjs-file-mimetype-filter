@@ -3,7 +3,7 @@ import { fileMimetypeFilter } from 'lib/helpers/file-mimetype';
 import { CustomFileOptions, FileOptions } from '../interface/file.interface';
 import { ApiFile } from './api-files.decorator';
 
-export function ApiImageFile(options:FileOptions) {
+export function ApiImageFile(options: FileOptions) {
   return ApiFile(options.fileName, options.apiBodyType, {
     fileFilter: fileMimetypeFilter({ allowedFiles: ['image'] }),
     ...options.localOptions,
@@ -12,7 +12,7 @@ export function ApiImageFile(options:FileOptions) {
 
 export function ApiPdfFile(options: FileOptions) {
   return ApiFile(options.fileName, options.apiBodyType, {
-    fileFilter: fileMimetypeFilter({allowedFiles:['pdf']}),
+    fileFilter: fileMimetypeFilter({ allowedFiles: ['pdf'] }),
     ...options.localOptions,
   });
 }
