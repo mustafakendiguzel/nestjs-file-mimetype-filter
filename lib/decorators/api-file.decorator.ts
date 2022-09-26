@@ -1,5 +1,4 @@
-import { MulterOptions } from '@nestjs/platform-express/multer/interfaces/multer-options.interface';
-import { fileMimetypeFilter } from 'lib/helpers/file-mimetype';
+import { fileMimetypeFilter } from '../helpers/file-mimetype';
 import { CustomFileOptions, FileOptions } from '../interface/file.interface';
 import { ApiFile } from './api-files.decorator';
 

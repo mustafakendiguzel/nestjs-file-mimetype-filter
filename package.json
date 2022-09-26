@@ -1,6 +1,6 @@
 {
   "name": "nestjs-file-mimetype-filter",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "A package where you can filter the filemimetype of the file you are going to upload.",
   "keywords": [
     "file",
