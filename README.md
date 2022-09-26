@@ -81,8 +81,6 @@ async create(@UploadedFile() file: Express.Multer.File, @Body() body:CreateConse
 You can use for filtering images 
 ```bash
 @ApiImageFile({fileName:'file'})
-
-
 ```
 or Custom fileMimeType,You can select multiple types for you want
 ```bash
@@ -91,7 +89,7 @@ or Custom fileMimeType,You can select multiple types for you want
       fileName:'file',
       type:{allowedFiles:['image','pdf']},
     })
-#or 
+#or you can block files type you want
 @CustomFile(
     {
       fileName:'file',
