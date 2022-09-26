@@ -1,5 +1,5 @@
 import { flatten, UnsupportedMediaTypeException } from '@nestjs/common';
-import { FilePermission } from 'lib/interface/file.permission.interface';
+import { FilePermission } from '../interface/file.permission.interface';
 
 export function fileMimetypeFilter(filePermission:FilePermission) {
   return (
