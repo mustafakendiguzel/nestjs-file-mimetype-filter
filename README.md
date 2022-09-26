@@ -24,7 +24,7 @@ $ import { ApiPdfFile,ApiImageFile,CustomFile } from 'nestjs-file-mimetype-filte
 ## Example Usage
 String of 'file' is the parameter name for uploadedFile from body.(default:'file')
 ```bash
-@ApiPdfFile('file')
+@ApiPdfFile({fileName:'file'})
   @Post()
   async create(@UploadedFile() file: Express.Multer.File, @Body() body: CreateConsentFormDto) {
     if (!file) {
@@ -36,10 +36,7 @@ String of 'file' is the parameter name for uploadedFile from body.(default:'file
 You can access the multer options with second parameter(Example)
 [More about Multer Options](https://www.npmjs.com/package/multer)
 ```bash
-@ApiPdfFile('file', {
-  dest:'src/files',
-  limits:5
-})
+@ApiPdfFile({fileName:'file', localOptions:{limits:{fileSize:1000}}})
   @Post()
   async create(@UploadedFile() file: Express.Multer.File, @Body() body: CreateConsentFormDto) {
     if (!file) {
@@ -49,11 +46,11 @@ You can access the multer options with second parameter(Example)
 
 You can combine with Swagger if you want 
 ```bash
-@ApiPdfFile('file',{},ConsentFormBody)
-  @Post()
-  async create(@UploadedFile() file: Express.Multer.File, @Body() body: CreateConsentFormDto) {
-    if (!file) {
-      throw new UnprocessableEntityException('File is required!');
+@ApiPdfFile({fileName:'file', apiBodyType:ConsentFormBody })
+@Post()
+async create(@UploadedFile() file: Express.Multer.File, @Body() body:CreateConsentFormDto) {
+  if (!file) {
+    throw new UnprocessableEntityException('File is required!');
   }
 
 ```
@@ -61,34 +58,45 @@ You can combine with Swagger if you want
 ## ConsentFormBody Example 
 ```bash
   export function ConsentFormBody() {
-  return applyDecorators(
-    ApiBody({
-      schema: {
-        type: 'object',
-        properties: {
-          name: { type: 'string' },
-          file: {
-            type: 'string',
-            format: 'binary',
+    return applyDecorators(
+      ApiBody({
+        schema: {
+          type: 'object',
+          properties: {
+            name: { type: 'string' },
+            file: {
+              type: 'string',
+              format: 'binary',
+            },
+            fileId: { type: 'string', nullable: true },
           },
-          fileId: { type: 'string', nullable: true },
         },
-      },
-    })
-  );
-}
+      })
+    );
+  }
 ```
 
 ## Other Usage
 
 You can use for filtering images 
 ```bash
-@ApiImageFile('file',{})
+@ApiPdfFile({fileName:'file'})
+
 
 ```
-or Custom fileMimeType 
+or Custom fileMimeType,You can select multiple types for you want
 ```bash
-@CustomFile('file','audio',{},consentFormBody)
+ @CustomFile(
+    {
+      fileName:'file',
+      type:{allowedFiles:['image','pdf']},
+    })
+#or 
+@CustomFile(
+    {
+      fileName:'file',
+      type:{deniedFiles:['image','pdf']},
+    })
 
 ```
 

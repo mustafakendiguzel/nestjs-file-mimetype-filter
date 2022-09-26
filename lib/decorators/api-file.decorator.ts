@@ -1,37 +1,25 @@
 import { MulterOptions } from '@nestjs/platform-express/multer/interfaces/multer-options.interface';
 import { fileMimetypeFilter } from 'lib/helpers/file-mimetype';
+import { CustomFileOptions, FileOptions } from '../interface/file.interface';
 import { ApiFile } from './api-files.decorator';
 
-export function ApiImageFile(
-  fileName: string = 'file',
-  localOptions?: MulterOptions,
-  apiBodyType?: Function,
-) {
-  return ApiFile(fileName, apiBodyType, {
-    fileFilter: fileMimetypeFilter('image'),
-    ...localOptions,
+export function ApiImageFile(options:FileOptions) {
+  return ApiFile(options.fileName, options.apiBodyType, {
+    fileFilter: fileMimetypeFilter({ allowedFiles: ['image'] }),
+    ...options.localOptions,
   });
 }
 
-export function ApiPdfFile(
-  fileName: string = 'file',
-  localOptions?: MulterOptions,
-  apiBodyType?: Function,
-) {
-  return ApiFile(fileName, apiBodyType, {
-    fileFilter: fileMimetypeFilter('pdf'),
-    ...localOptions,
+export function ApiPdfFile(options: FileOptions) {
+  return ApiFile(options.fileName, options.apiBodyType, {
+    fileFilter: fileMimetypeFilter({allowedFiles:['pdf']}),
+    ...options.localOptions,
   });
 }
 
-export function CustomFile(
-  fileName: string = 'file',
-  customType: string,
-  localOptions?: MulterOptions,
-  apiBodyType?: Function,
-) {
-  return ApiFile(fileName, apiBodyType, {
-    fileFilter: fileMimetypeFilter(customType),
-    ...localOptions,
+export function CustomFile(options: CustomFileOptions) {
+  return ApiFile(options.fileName, options.apiBodyType, {
+    fileFilter: fileMimetypeFilter(options.type),
+    ...options.localOptions,
   });
 }
