@@ -80,7 +80,7 @@ async create(@UploadedFile() file: Express.Multer.File, @Body() body:CreateConse
 
 You can use for filtering images 
 ```bash
-@ApiPdfFile({fileName:'file'})
+@ApiImageFile({fileName:'file'})
 
 
 ```
