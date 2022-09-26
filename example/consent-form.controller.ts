@@ -16,7 +16,8 @@
 // @Controller('consent-form')
 // export class ConsentFormController {
 
-//   @ApiPdfFile('src',{},ConsentFormBody)
+//   @ApiPdfFile({fileName:'file', apiBodyType:ConsentFormBody })
+
 //   @Post()
 //   async create(@UploadedFile() file: Express.Multer.File, @Body() body: CreateConsentFormDto) {
 //     if (!file) {

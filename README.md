@@ -22,7 +22,7 @@ $ import { ApiPdfFile,ApiImageFile,CustomFile } from 'nestjs-file-mimetype-filte
 ```
 
 ## Example Usage
-String of 'file' is the parameter name for uploadedFile from body.(default:'file')
+String of 'file' is the parameter name for uploadedFile from body
 ```bash
 @ApiPdfFile({fileName:'file'})
   @Post()
@@ -33,7 +33,7 @@ String of 'file' is the parameter name for uploadedFile from body.(default:'file
 
 ```
 ## Access Multer Options 
-You can access the multer options with second parameter(Example)
+You can access the multer options with localOptions parameter(Example)
 [More about Multer Options](https://www.npmjs.com/package/multer)
 ```bash
 @ApiPdfFile({fileName:'file', localOptions:{limits:{fileSize:1000}}})
@@ -95,7 +95,7 @@ or Custom fileMimeType,You can select multiple types for you want
       fileName:'file',
       type:{deniedFiles:['image','pdf']},
     })
-
+#Don't use allowedFiles and deniedFiles together!
 ```
 
 ## Stay in touch
